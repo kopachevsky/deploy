@@ -16,7 +16,7 @@ spec:
         image:
           repository:
           pullPolicy: IfNotPresent
-          tag: #IMAGE_TAG#
+          tag: main-ead56e9
   destination:
     server: https://kubernetes.default.svc
   syncPolicy:
