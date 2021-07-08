@@ -21,3 +21,5 @@ jobs:
           exclude: '.^'               # Optional, defaults to '.^'
           encoding: 'utf8'            # Optional, defaults to 'utf8'
           path: './argo-releases/dev'                   # Optional, defaults to '.'
+      - name: push
+          uses: actions-x/commit@v2
