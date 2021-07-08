@@ -12,7 +12,7 @@ jobs:
       - name: echo
         run: 'echo "field: ${{ github.event.client_payload.image_tag }}"'
       - name: Modify version number
-        uses: mingjun97/file-regex-replace
+        uses: mingjun97/file-regex-replace@v1
         with:
           regex: 'tag: *([0-9\.a-zA-Z-]*)'
           replacement: 'tag: ${{ github.event.client_payload.image_tag }}'
