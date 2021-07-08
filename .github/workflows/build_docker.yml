@@ -4,6 +4,7 @@ on:
   push:
       branches: [main, dev, qa, staging]
   workflow_dispatch:
+  repository_dispatch:
 
 jobs:
   build-docker:
