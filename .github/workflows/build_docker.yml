@@ -10,4 +10,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: echo
-        run: 'echo "field: ${{ github.event.client_payload.service }}"'
+        run: 'echo "field: ${{ github.event.client_payload.image_tag }}"'
+      - name: Modify version number
+        uses: mingjun97/file-regex-replace
+        with:
+          regex: 'tag: *([0-9\.a-zA-Z-]*)'
+          replacement: 'tag: ${{ github.event.client_payload.image_tag }}'
+          flags: "g"                  # Optional, defaults to "g"
+          include: 'my-service\.yaml'    # Optional, defaults to ".*"
+          exclude: '.^'               # Optional, defaults to '.^'
+          encoding: 'utf8'            # Optional, defaults to 'utf8'
+          path: 'argo-releases\dev'                   # Optional, defaults to '.'
