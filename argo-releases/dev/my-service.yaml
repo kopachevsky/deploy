@@ -16,7 +16,7 @@ spec:
         image:
           repository:
           pullPolicy: IfNotPresent
-          tag: 1235
+          tag: main-34sd
   destination:
     server: https://kubernetes.default.svc
   syncPolicy:
