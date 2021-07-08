@@ -20,4 +20,4 @@ jobs:
           include: 'my-service\.yaml'    # Optional, defaults to ".*"
           exclude: '.^'               # Optional, defaults to '.^'
           encoding: 'utf8'            # Optional, defaults to 'utf8'
-          path: 'argo-releases\dev'                   # Optional, defaults to '.'
+          path: './argo-releases/dev'                   # Optional, defaults to '.'
