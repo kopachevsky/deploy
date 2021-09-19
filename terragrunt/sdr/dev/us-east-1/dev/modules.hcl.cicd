@@ -1,4 +1,4 @@
 locals {
   modules_source = "git::ssh://git@github.com/KOR-Financial/kor-infra-terraform-modules.git/"
-  modules_ref    = "test6"
+  modules_ref    = "test2"
 }
