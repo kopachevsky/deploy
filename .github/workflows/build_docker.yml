@@ -22,4 +22,9 @@ jobs:
           encoding: 'utf8'                                            # Optional, defaults to 'utf8'
           path: 'terragrunt/sdr/dev/us-east-1/dev/'                   # Optional, defaults to '.'
       - name: push
-        uses: actions-x/commit@v2
+        uses: github-actions-x/commit@v2.8
+        with:
+          commit-message: "Updated Modules Tag = ${{ github.event.client_payload.tag }}"
+          force-add: 'true'
+          name: kor-robot
+          email: kor-robot-no-reply@korfinancial.com
