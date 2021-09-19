@@ -24,6 +24,8 @@ jobs:
       - name: Tag
         id: tag_version
         uses: mathieudutour/github-tag-action@v5.6
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: push
         uses: github-actions-x/commit@v2.8
         with:
