@@ -10,16 +10,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: echo
-        run: 'echo "image: ${{ github.event.client_payload.image_tag }}, service: ${{ github.event.client_payload.service }}"'
+        run: 'echo "modules tag: ${{ github.event.client_payload.tag }}"'
       - name: Modify version number
         uses: mingjun97/file-regex-replace@v1
         with:
-          regex: 'tag: *([0-9\.a-zA-Z-]*)'
-          replacement: 'tag: ${{ github.event.client_payload.image_tag }}'
-          flags: "g"                  # Optional, defaults to "g"
-          include: '${{ github.event.client_payload.service }}\.yaml' # Optional, defaults to ".*"
-          exclude: '.^'               # Optional, defaults to '.^'
-          encoding: 'utf8'            # Optional, defaults to 'utf8'
-          path: './argo-releases/dev' # Optional, defaults to '.'
+          regex: 'modules_ref *= *"([0-9\.a-zA-Z-]*)"'
+          replacement: 'modules_ref    = "${{ github.event.client_payload.tag }}"'
+          flags: "g"                                                  # Optional, defaults to "g"
+          include: 'modules.hcl.cicd'                                 # Optional, defaults to ".*"
+          exclude: '.^'                                               # Optional, defaults to '.^'
+          encoding: 'utf8'                                            # Optional, defaults to 'utf8'
+          path: 'terragrunt/sdr/dev/us-east-1/dev/'                   # Optional, defaults to '.'
       - name: push
         uses: actions-x/commit@v2
